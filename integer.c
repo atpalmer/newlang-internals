@@ -11,7 +11,6 @@ static int cmp(const Object *a, const Object *b) {
 
 static Object *new_from_s(const char *s) {
     assert(s != NULL);
-    char *endptr;
     Object *new = malloc(sizeof(Object));
     new->type = &Integer;
     new->data.Integer = strtol(s, NULL, 10);
