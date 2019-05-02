@@ -4,14 +4,14 @@
 extern Type Integer;
 
 static int cmp(const Object *a, const Object *b) {
-    return b->data.Integer - a->data.Integer;
+    return a->data.Integer - b->data.Integer;
 }
 
 static Object *new_from_s(const char *s) {
     char *endptr;
     Object *new = malloc(sizeof(Object));
     new->type = &Integer;
-    new->data.Integer = strtol("7", NULL, 10);
+    new->data.Integer = strtol(s, NULL, 10);
     return new;
 }
 

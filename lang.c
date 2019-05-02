@@ -17,6 +17,16 @@ void test_Integer_equals(void) {
     printf("test_Integer_equals. OK.\n");
 }
 
+void test_Integer_gt(void) {
+    const Object *a = Integer.new_from_s("10");
+    const Object *b = Integer.new_from_s("5");
+    bool result = object_gt(a, b);
+    assert(result);
+    object_destroy(a);
+    object_destroy(b);
+    printf("test_Integer_gt. OK.\n");
+}
+
 void test_String_equals(void) {
     const Object *a = String.new_from_s("Hello, world");
     const Object *b = String.new_from_s("Hello, world");
@@ -27,8 +37,20 @@ void test_String_equals(void) {
     printf("test_String_equals. OK.\n");
 }
 
+void test_String_gt(void) {
+    const Object *a = String.new_from_s("b");
+    const Object *b = String.new_from_s("a");
+    bool result = object_gt(a, b);
+    assert(result);
+    object_destroy(a);
+    object_destroy(b);
+    printf("test_String_gt. OK.\n");
+}
+
 int main(void) {
     type_init();
     test_Integer_equals();
+    test_Integer_gt();
     test_String_equals();
+    test_String_gt();
 }
