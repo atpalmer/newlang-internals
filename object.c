@@ -17,3 +17,8 @@ bool object_gt(const Object *self, const Object *other) {
     assert(self->type == other->type);
     return self->type->cmp(self, other) > 0;
 }
+
+bool object_lt(const Object *self, const Object *other) {
+    assert(self->type == other->type);
+    return self->type->cmp(self, other) < 0;
+}

@@ -15,5 +15,6 @@ typedef struct object {
 void object_destroy(const Object *self);
 bool object_equals(const Object *self, const Object *other);
 bool object_gt(const Object *self, const Object *other);
+bool object_lt(const Object *self, const Object *other);
 
 #endif
