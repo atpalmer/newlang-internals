@@ -1,6 +1,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include <stdbool.h>
 #include "type.h"
 
 typedef struct object {

@@ -4,8 +4,8 @@
 
 extern Type String;
 
-static bool equals(const Object *a, const Object *b) {
-    return strcmp(a->data.String, b->data.String) == 0;
+static int cmp(const Object *a, const Object *b) {
+    return strcmp(a->data.String, b->data.String);
 }
 
 static Object *new_from_s(const char *s) {
@@ -21,7 +21,7 @@ static void destroy(const Object *self) {
 }
 
 void String_init(void) {
-    String.equals = equals;
+    String.cmp = cmp;
     String.new_from_s = new_from_s;
     String.destroy = destroy;
 }

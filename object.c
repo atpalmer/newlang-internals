@@ -8,5 +8,5 @@ void object_destroy(const Object *self) {
 }
 
 bool object_equals(const Object *self, const Object *other) {
-    return self->type == other->type && self->type->equals(self, other);
+    return self->type == other->type && self->type->cmp(self, other) == 0;
 }
