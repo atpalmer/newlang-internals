@@ -67,6 +67,18 @@ void test_String_lt(void) {
     printf("test_String_lt. OK.\n");
 }
 
+void test_String_toUpper(void) {
+    const Object *s = String.new_from_s("hello");
+    const Object *expected = String.new_from_s("HELLO");
+    const Object *actual = object_invoke(s, "toUpper");
+    bool result = object_equals(expected, actual);
+    assert(result);
+    object_destroy(s);
+    object_destroy(expected);
+    object_destroy(actual);
+    printf("test_String_toUpper. OK.\n");
+}
+
 int main(void) {
     type_init();
     test_Integer_equals();
@@ -75,4 +87,6 @@ int main(void) {
     test_String_equals();
     test_String_gt();
     test_String_lt();
+    test_String_toUpper();
+    type_destroy();
 }
